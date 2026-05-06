@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damumed — Отчёты</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+<base target="_blank">
+</head>
+<body data-page="reports">
+    <header class="topbar">
+        <div class="topbar-left">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">D</div>
+                <span class="logo-text">Damu<span class="logo-accent">med</span></span>
+            </a>
+            <nav class="topbar-nav">
+                <a href="index.html" class="nav-item">Приём</a>
+                <a href="patients.html" class="nav-item">Пациенты</a>
+                <a href="schedule.html" class="nav-item">Расписание</a>
+                <a href="referrals.html" class="nav-item">Направления</a>
+                <a href="reports.html" class="nav-item active">Отчёты</a>
+            </nav>
+        </div>
+        <div class="topbar-right">
+            <div class="user-chip">
+                <div class="user-avatar">АС</div>
+                <div><div class="user-name">Д-р Асанов</div><div class="user-role">Терапевт</div></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="workspace" style="grid-template-columns:1fr;">
+        <main class="main-content" style="padding:24px 28px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+                <div>
+                    <h1 style="font-size:22px;font-weight:700;">Отчёты и аналитика</h1>
+                    <p style="font-size:13px;color:var(--text-muted);margin-top:3px;">Период: январь 2026</p>
+                </div>
+                <button class="btn btn-primary" id="rep-export">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Экспорт PDF
+                </button>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-card" style="border-left:3px solid var(--primary);">
+                    <div class="stat-num" id="rep-stat-1">0</div>
+                    <div class="stat-label">Приёмов за месяц</div>
+                </div>
+                <div class="stat-card" style="border-left:3px solid var(--success);">
+                    <div class="stat-num" id="rep-stat-2">0</div>
+                    <div class="stat-label">Всего пациентов</div>
+                </div>
+                <div class="stat-card" style="border-left:3px solid var(--warning);">
+                    <div class="stat-num" id="rep-stat-3">0</div>
+                    <div class="stat-label">Направлений</div>
+                </div>
+                <div class="stat-card" style="border-left:3px solid var(--info);">
+                    <div class="stat-num" id="rep-stat-4">0%</div>
+                    <div class="stat-label">Заполняемость</div>
+                </div>
+            </div>
+
+            <div class="form-grid two-cols" style="margin-bottom:16px;">
+                <div class="form-section">
+                    <div class="section-header" style="padding-bottom:10px;"><h2>Динамика приёмов</h2></div>
+                    <div style="height:200px;display:flex;align-items:flex-end;gap:6px;padding:16px 0;">
+                        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:100%;background:linear-gradient(to top,var(--primary),#38bdf8);border-radius:4px 4px 0 0;height:60%;"></div><span style="font-size:10px;color:var(--text-muted);">Пн</span></div>
+                        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:100%;background:linear-gradient(to top,var(--primary),#38bdf8);border-radius:4px 4px 0 0;height:85%;"></div><span style="font-size:10px;color:var(--text-muted);">Вт</span></div>
+                        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:100%;background:linear-gradient(to top,var(--primary),#38bdf8);border-radius:4px 4px 0 0;height:45%;"></div><span style="font-size:10px;color:var(--text-muted);">Ср</span></div>
+                        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:100%;background:linear-gradient(to top,var(--primary),#38bdf8);border-radius:4px 4px 0 0;height:95%;"></div><span style="font-size:10px;color:var(--text-muted);">Чт</span></div>
+                        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:100%;background:linear-gradient(to top,var(--primary),#38bdf8);border-radius:4px 4px 0 0;height:70%;"></div><span style="font-size:10px;color:var(--text-muted);">Пт</span></div>
+                        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:100%;background:linear-gradient(to top,#64748b,#94a3b8);border-radius:4px 4px 0 0;height:25%;"></div><span style="font-size:10px;color:var(--text-muted);">Сб</span></div>
+                        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:100%;background:linear-gradient(to top,#64748b,#94a3b8);border-radius:4px 4px 0 0;height:15%;"></div><span style="font-size:10px;color:var(--text-muted);">Вс</span></div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="section-header" style="padding-bottom:10px;"><h2>Распределение по диагнозам</h2></div>
+                    <div style="padding:12px 0;">
+                        <div style="margin-bottom:14px;"><div style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:12px;"><span>ОРВИ / Ангина</span><strong>42%</strong></div><div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:42%;height:100%;background:var(--primary);border-radius:3px;"></div></div></div>
+                        <div style="margin-bottom:14px;"><div style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:12px;"><span>Гипертония</span><strong>28%</strong></div><div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:28%;height:100%;background:#6366f1;border-radius:3px;"></div></div></div>
+                        <div style="margin-bottom:14px;"><div style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:12px;"><span>Гастрит</span><strong>15%</strong></div><div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:15%;height:100%;background:var(--warning);border-radius:3px;"></div></div></div>
+                        <div style="margin-bottom:14px;"><div style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:12px;"><span>Сахарный диабет</span><strong>10%</strong></div><div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:10%;height:100%;background:var(--error);border-radius:3px;"></div></div></div>
+                        <div><div style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:12px;"><span>Прочие</span><strong>5%</strong></div><div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:5%;height:100%;background:var(--text-muted);border-radius:3px;"></div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section" style="padding:0;overflow:hidden;">
+                <div class="section-header" style="padding:14px 18px;margin-bottom:0;"><h2>Журнал отчётов</h2></div>
+                <div style="overflow-x:auto;">
+                    <table class="data-table">
+                        <thead><tr><th>Название</th><th>Период</th><th>Автор</th><th>Дата</th><th>Формат</th><th>Статус</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Сводка по приёмам за январь</strong></td><td>01.01 — 31.01.2026</td><td>Д-р Асанов</td><td>01.02.2026</td><td><span class="status-badge inf">PDF</span></td><td><span class="status-badge ok">Готов</span></td></tr>
+                            <tr><td><strong>Анализ направлений Q4</strong></td><td>01.10 — 31.12.2025</td><td>Д-р Асанов</td><td>15.01.2026</td><td><span class="status-badge inf">XLSX</span></td><td><span class="status-badge ok">Готов</span></td></tr>
+                            <tr><td><strong>Статистика заболеваемости</strong></td><td>01.01 — 31.01.2026</td><td>Система</td><td>01.02.2026</td><td><span class="status-badge inf">PDF</span></td><td><span class="status-badge warn">Формируется</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="toast-stack" id="toast-stack"></div>
+    <script src="main.js"></script>
+</body>
+</html>
