@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Базовая вкладка</title>
+  <link rel="stylesheet" href="panel.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #080c10;
+      color: #e2ffe8;
+      font-family: 'Outfit', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      user-select: none;
+    }
+    .nt-logo { display: flex; align-items: center; gap: 10px; opacity: 0.15; margin-bottom: 8px; }
+    .nt-logo svg { width: 32px; height: 32px; fill: #4ade80; }
+    .nt-logo span { font-size: 20px; font-weight: 700; color: #4ade80; letter-spacing: 1px; }
+    #nt-time { font-size: 80px; font-weight: 700; color: #e2ffe8; letter-spacing: -3px; font-family: 'DM Mono', 'Courier New', monospace; line-height: 1; }
+    #nt-date { font-size: 13px; color: #4b5f72; letter-spacing: 0.4px; text-transform: capitalize; }
+    .nt-hint { font-size: 10px; color: #1e2d38; font-family: 'DM Mono', monospace; margin-top: 8px; }
+
+    .nt-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      max-width: 480px;
+    }
+    #nt-search-input {
+      flex: 1;
+      background: #0d1a22;
+      border: 1px solid #1e3040;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 15px;
+      font-family: 'Outfit', sans-serif;
+      color: #e2ffe8;
+      outline: none;
+      transition: border-color 0.2s;
+      caret-color: #4ade80;
+      user-select: text;
+    }
+    #nt-search-input::placeholder { color: #2a4050; }
+    #nt-search-input:focus { border-color: #4ade80; }
+    #nt-search-btn {
+      background: #4ade80;
+      color: #080c10;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    #nt-search-btn:hover { background: #6ef09a; }
+    .nt-search-shortcuts {
+      display: flex;
+      gap: 8px;
+      margin-top: -8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nt-shortcut {
+      font-size: 10px;
+      color: #1e3040;
+      font-family: 'DM Mono', monospace;
+      cursor: pointer;
+      padding: 3px 7px;
+      border-radius: 5px;
+      border: 1px solid #1a2d3a;
+      transition: color 0.15s, border-color 0.15s;
+      user-select: none;
+    }
+    .nt-shortcut:hover { color: #4ade80; border-color: #4ade80; }
+  </style>
+</head>
+<body>
+  <div class="nt-logo">
+    <svg viewBox="0 0 24 24"><path d="M9 3H15V9H21V15H15V21H9V15H3V9H9V3Z"/></svg>
+    <span>Aqbobek</span>
+  </div>
+  <div id="nt-time"></div>
+  <div id="nt-date"></div>
+
+  <div class="nt-search">
+    <input id="nt-search-input" type="text" placeholder="Поиск или yt:видео, kaspi:товар..." autocomplete="off" spellcheck="false">
+    <button id="nt-search-btn">Найти</button>
+  </div>
+  <div class="nt-search-shortcuts">
+    <span class="nt-shortcut" data-prefix="yt:">yt:</span>
+    <span class="nt-shortcut" data-prefix="kaspi:">kaspi:</span>
+    <span class="nt-shortcut" data-prefix="google:">google:</span>
+    <span class="nt-shortcut" data-prefix="wiki:">wiki:</span>
+    <span class="nt-shortcut" data-prefix="gh:">github:</span>
+    <span class="nt-shortcut" data-prefix="maps:">maps:</span>
+    <span class="nt-shortcut" data-prefix="tr:">translate:</span>
+  </div>
+
+  <div class="nt-hint">скажи «Алиса / Агент / Работник» или нажми иконку расширения</div>
+
+  <script src="content.js"></script>
+  <script src="clock.js"></script>
+</body>
+</html>
